@@ -934,7 +934,8 @@ footer p {
       padding: 8px 16px;
       font-size: 18px;
   }
-
+.project{
+  font-size: 18px;
   /* Contact Section */
   .contact-wrapper {
       border-radius: 20px;
