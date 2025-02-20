@@ -181,10 +181,10 @@ body {
 }
 #about-main #details h2{
     font-size: 40px;
-    padding: 20px 0px 20px 230px;
+    padding: 20px 0px 20px 200px;
 }
 #about-main #details p{
- 
+ text-align: justify;
     font-size: 20px;
     padding: 10px;
 }
