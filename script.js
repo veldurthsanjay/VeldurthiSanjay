@@ -62,6 +62,11 @@ document.addEventListener('DOMContentLoaded', () => {
     menuToggle.addEventListener('click', () => {
         navLinks.classList.toggle('active');
     });
+ const toggle = document.getElementById('menu-toggle');
+toggle.addEventListener('click', () => {
+  toggle.classList.toggle('active');
+  document.querySelector('.navbar').classList.toggle('open'); // Optional: control menu visibility
+});
 
     function changeRole() {
         roleElement.style.opacity = 0; 
