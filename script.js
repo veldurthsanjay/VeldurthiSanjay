@@ -17,7 +17,6 @@
 // ];
 
 let currentTheme = 0;
-
 function switchTheme() {
   currentTheme = (currentTheme + 1) % themes.length;
   const theme = themes[currentTheme];
