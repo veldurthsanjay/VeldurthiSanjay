@@ -1,7 +1,7 @@
 // const themes = [
 //   {
-//     bg: "linear-gradient(135deg, #0d1117 0%, #1c2526 100%)",
-//     button: "linear-gradient(45deg, #00ff9f, #00b4d8)", 
+//     bg: "linear-gradient(135deg, #0d1117 0%, #1c2526 100%)", // Deep GitHub-inspired dark gradient
+//     button: "linear-gradient(45deg, #00ff9f, #00b4d8)", // Neon green to cyan for buttons
 //     text: "#e6edf3" // Soft off-white for readability
 //   },
 //   {
@@ -17,6 +17,7 @@
 // ];
 
 let currentTheme = 0;
+
 function switchTheme() {
   currentTheme = (currentTheme + 1) % themes.length;
   const theme = themes[currentTheme];
@@ -25,6 +26,7 @@ function switchTheme() {
   document.body.style.color = theme.text;
   document.querySelector(".theme-toggle").style.background = theme.button;
 }
+
 document.querySelectorAll('.nav-links a').forEach(anchor => {
   anchor.addEventListener('click', function(e) {
     e.preventDefault();
@@ -61,10 +63,10 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     const toggle = document.getElementById('menu-toggle');
-toggle.addEventListener('click', () => {
-  toggle.classList.toggle('active');
-  document.querySelector('.navbar').classList.toggle('open'); // Optional: control menu visibility
-});
+    toggle.addEventListener('click', () => {
+      toggle.classList.toggle('active');
+      document.querySelector('.navbar').classList.toggle('open'); // Optional: control menu visibility
+    });
 
     function changeRole() {
         roleElement.style.opacity = 0; 
@@ -76,8 +78,20 @@ toggle.addEventListener('click', () => {
     }
     changeRole();
     setInterval(changeRole, 3500);
-});
 
+    // About section animation
+    const aboutDetails = document.querySelector('.about-details');
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.2 });
+
+    observer.observe(aboutDetails);
+});
 
 document.addEventListener('DOMContentLoaded', () => {
   const skillSections = document.querySelectorAll('.skills');
@@ -114,9 +128,6 @@ document.addEventListener('DOMContentLoaded', function () {
   filterButtons.forEach(button => {
       button.addEventListener('click', function () {
           const filter = this.getAttribute('data-filter');
-          // container.style.maxWidth = '1150px';
-          // container.style.marginLeft = '200px';
-
           projects.forEach(project => {
               if (filter === 'all' || project.getAttribute('data-category') === filter) {
                   project.style.display = 'block';
@@ -267,4 +278,4 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   animate();
-})
+});
