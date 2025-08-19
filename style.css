@@ -31,27 +31,38 @@ body {
 .theme-toggle i {
   font-size: 20px;
 }
+
 .navbar {
     height: var(--nav-height);
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 0 5%;
-    position:fixed;
+    position: fixed;
     width: 100%;
     top: 0;
-    background-color:#000814 ;
+    background-color: #000814;
     z-index: 1000;
 }
 
-.logo {
-    font-size: 30px;
+.logo, .nav-links a {
+    /* font-size: 30px; */
+    font-size: 1.5rem;
     font-weight: bold;
     letter-spacing: 2px;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    color: #ffffff;
 }
 
-.highlight {
-    color: var(--primary-color);
+.logo::after, .nav-links a::after {
+    content: '';
+    width: 0;
+    height: 5px;
+    background: linear-gradient(to right, #4a00e0, #ff007a);
+    margin-top: 5px;
+    display: block;
+    transition: width 0.3s ease;
 }
 
 .nav-links {
@@ -59,18 +70,37 @@ body {
     gap: 4rem;
 }
 
-.nav-links a {
-    color: var(--text-color);
-    text-decoration: none;
-    font-size: 1.5rem;
-    transition: color 0.3s ease;
+.nav-links a.active {
+    color: transparent;
+    background: linear-gradient(to right, #4a00e0, #ff007a);
+    -webkit-background-clip: text;
+    background-clip: text;
 }
 
-.nav-links a:hover,
-.nav-links a.active {
+.nav-links a.active::after {
+    width: 100px;
+}
+
+.nav-links a:hover {
+    color: transparent;
+    background: linear-gradient(to right, #4a00e0, #ff007a);
+    -webkit-background-clip: text;
+    background-clip: text;
+}
+
+.nav-links a:hover::after {
+    width: 100px;
+}
+
+.logo {
+    font-size: 32px;
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
+    color: #ffffff;
+}
+
+.highlight {
     color: var(--primary-color);
 }
-
 .menu-toggle {
     display: flex;
     flex-direction: column;
@@ -184,37 +214,77 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    position: relative;
+    z-index: 0;
 }
 
 .image-container {
-    width: 400px;
-    height: 500px;
-    border-radius: 20px;
-    overflow: hidden;
-
+    width: 350px;
+    height: 450px;
+    border-radius: 50px;
+    overflow: visible;
+    position: relative;
 }
 
 .image-container img {
     width: 100%;
     height: 100%;
+    border-radius: 50px;
     object-fit: cover;
+    position: relative;
+    z-index: 2;
 }
 
+.image-container::after {
+    content: '';
+    position: absolute;
+    top: -1px;
+    left: -1px;
+    right: -1px;
+    bottom: -1px;
+    border-radius: 150px;
+    box-shadow: 0 0 0 2px transparent;
+    background: linear-gradient(45deg, #ff0044, #00ff95, #ff00ff, #00ffff);
+    -webkit-background-clip: text;
+    background-clip:content-box;
+    z-index: 1;
+    animation: rotateBorder 6s linear infinite, randomColors 10s infinite;
+}
+
+@keyframes rotateBorder {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes randomColors {
+    0% { border-image: linear-gradient(45deg, #ff0044, #00ff95, #ff00ff, #00ffff) 1; }
+    25% { border-image: linear-gradient(45deg, #ff4500, #00cc00, #9900ff, #00cccc) 1; }
+    50% { border-image: linear-gradient(45deg, #ff00ff, #ffeb3b, #00ff00, #1e90ff) 1; }
+    75% { border-image: linear-gradient(45deg, #ff1493, #00ced1, #ffd700, #4169e1) 1; }
+    100% { border-image: linear-gradient(45deg, #ff0044, #00ff95, #ff00ff, #00ffff) 1; }
+}
 
 #about-main{
    max-width: 1000px; 
    height: 400px;
 /*    display:grid;
    grid-template-columns: 60% 50%; */
-   background-color: rgb(241, 239, 239);
-   color: rgb(53, 51, 51); 
+   /* background-color: rgb(241, 239, 239); */
+  background: linear-gradient(to bottom right, #c4ad52, #77c270, #e02645);
+
+   color: rgb(15, 14, 14); 
    border-radius: 15px;
-   padding: 0px 150px 0px 150px;
+   padding: 0px 100px 0px 100px;
    margin-left: 300px;
 }
 #about-main #details h2{
     font-size: 40px;
-    padding: 20px 0px 20px 200px;
+    padding: 20px 0px 20px 0px;
+    text-align: center;
 }
 #about-main #details p{
  text-align: justify;
@@ -236,32 +306,34 @@ body {
   margin-top: 20px;
   transition: background-color 0.3s ease;
 }
-#about-main #img-div img{
+/* #about-main #img-div img{
     width: 250px;
     border-radius:50%;
     margin: 70px 0px 0px 30px;
     box-shadow:10px 10px 100px;
-}
+} */
 .skills-container {
   max-width: 1020px;
   margin: 40px auto;
   margin-left: 280px;
   padding: 50px;
   text-align: center;
-  background: linear-gradient(145deg, #ffffff, #e0e0e0);
+  /* background: linear-gradient(145deg, #ffffff, #e0e0e0); */
+  /* background: linear-gradient(to bottom right, #8f7614, #cb4a4a, #09bd60); */
+   background: linear-gradient(to bottom right, #c4ad52, #77c270, #e02645);
   border-radius: 15px;
   font-family: 'Arial', sans-serif;
 }
 
 h1 {
   font-size: 40px;
-  color: #333;
+  color: #101010;
   margin-bottom: 15px;
 }
 
 #skill-instruction {
   font-size: 20px;
-  color: #777;
+  color: #0c0b0b;
   margin-bottom: 20px;
 }
 
@@ -274,7 +346,7 @@ h1 {
   margin: 5px;
   border: none;
   border-radius: 25px;
-  background: linear-gradient(145deg, #007bff, #0056b3);
+  background: linear-gradient(145deg, #d00404, #0056b3);
   color: white;
   font-size: 20px;
   font-weight: bold;
@@ -327,7 +399,7 @@ h1 {
   border-radius: 10px;
   padding: 20px;
   transition: transform 0.3s ease;
-  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.1), -4px -4px 8px rgba(255, 255, 255, 0.5);
+  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.1), -4px -4px 8px rgba(124, 4, 4, 0.5);
   flex: 1 1 calc(25% - 40px);
   box-sizing: border-box;
   max-width: 250px;
@@ -358,24 +430,26 @@ h1 {
   padding: 50px;
   max-width: 1050px;
   margin: 20px 0px 50px 270px;
-  background-color:  rgb(241, 239, 239);
+  /* background-color:  rgb(241, 239, 239); */
+   background: linear-gradient(to bottom right, #c4ad52, #77c270, #e02645);
   border-radius: 25px;
   text-align: center;
 }
 .projects-container h1 {
-  font-size: 2.5rem;
-  color: #333;
+  font-size: 40px;
+  color: #040404;
+  padding: 20px 0px 0px 0px;
+    text-align: center;
 
 }
 #project-instruction{
   font-size: 20px;
-  color: #777;
-  margin:20px 50px 20px 0px;
+  color: #121010;
+  /* text-align: center; */
+  margin-bottom: 20px;
+
 }
-.projects-container p{
-  margin: 0px 0px 10px 180px;
-  font-size: 30px;
-}
+
 .projects-container p{
   color: red;
 }
@@ -388,7 +462,8 @@ h1 {
   margin: 0 10px;
   font-size: 1.2rem;
   color: #fff;
-  background-color: #007bff;
+  /* background-color: #007bff; */
+  background: linear-gradient(145deg, #d00404, #0056b3);
   border: none;
   border-radius: 10px;
   cursor: pointer;
@@ -453,7 +528,7 @@ h1 {
 }
 
 #projects-grid .project a:hover {
-  background: linear-gradient(90deg, #0056b3, #003a80);
+  background: linear-gradient(90deg, #b80983, #29016d);
   
 }
 .container {
@@ -472,7 +547,8 @@ h1 {
 }
 
 .contact-info {
-  background: linear-gradient(45deg, #3d0cd0 0%, #4ECDC4 100%);
+    background: linear-gradient(145deg, #a21111, #0056b3);
+  /* background: linear-gradient(45deg, #3d0cd0 0%, #4ECDC4 100%); */
   color: white;
   padding: 20px;
   border-radius: 20px;
@@ -559,12 +635,13 @@ h1 {
 
 .contact-form {
   padding: 40px;
-  background: white;
+  /* background: white; */
+   background: linear-gradient(to bottom right, #ad9d5d, #7db178, #962c3e);
   border-radius: 20px;
 }
 
 .contact-form h2 {
-  color: #333;
+  color: #080707;
   margin-bottom: 30px;
   font-size: 28px;
 }
@@ -586,7 +663,7 @@ h1 {
 .form-group label {
   display: block;
   margin-bottom: 8px;
-  color: #555;
+  color: #060505;
   font-size: 15px;
   font-weight: 500;
 }
@@ -605,13 +682,13 @@ h1 {
 .form-group input:focus,
 .form-group textarea:focus {
   outline: none;
-  border-color: #4ECDC4;
+  border-color: #080707;
   box-shadow: 0 0 0 3px rgba(78, 205, 196, 0.1);
   background: white;
 }
 
 #submitBtn {
-  background: linear-gradient(45deg, #846bff, #4ECDC4);
+  background: linear-gradient(45deg, #290ac4, #423c93);
   color: white;
   padding: 15px 30px;
   border: none;
@@ -641,8 +718,9 @@ button:active {
 footer .container {
   display: flex;
   flex-direction: column;
-  background-color: #f1eeee;
-  color: rgb(12, 10, 10);
+  /* background-color: #f1eeee; */
+  background: linear-gradient(45deg, rgba(61, 12, 208, 0.7) 0%, rgba(8, 171, 22, 0.7) 100%);
+  color:whitesmoke;
   margin-top: 20px;
   padding: 20px 0;
 }
@@ -650,7 +728,8 @@ footer .container {
 footer p {
   margin: 0;
   font-size: 25px;
-  padding-left: 90px;
+
+  text-align: center;
 }
 
 /* Large Desktop (1200px and up) */
@@ -930,7 +1009,7 @@ footer p {
   }
 
   #about-main #details h2 {
-      font-size: 30px;
+      font-size: 40px;
   }
 
   #about-main #details p {
@@ -954,12 +1033,12 @@ footer p {
   }
 
   .projects-container h1 {
-      font-size: 30px;
+      font-size: 40px;
   }
 
   #project-instruction {
-      font-size: 16px;
-      margin: 15px 0;
+      font-size: 20px;
+      margin: 15px;
   }
 
   .filter-btn {
