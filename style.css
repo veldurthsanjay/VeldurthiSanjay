@@ -347,7 +347,7 @@ h1 {
 }
 
 .category-btn.active {
-    background: crimson;
+    background: #0056b3;
     color: white;
     transform: scale(1.1);
 }
@@ -457,7 +457,7 @@ h1 {
     transform: scale(1.05);
 }
 .filter-btn.active {
-    background: crimson;
+    background: #0056b3;
     color: white;
     transform: scale(1.05);
 }
