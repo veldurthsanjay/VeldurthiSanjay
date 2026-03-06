@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
 window.scrollTo(0,0)
 
 const roleElement = document.getElementById('role')
-const roles = ['Web Developer','UI/UX Designer']
+const roles = ['Full Stack Developer']
 let currentRoleIndex = 0
 
 
