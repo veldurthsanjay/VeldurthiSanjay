@@ -236,22 +236,6 @@ body {
 
 
 
-@keyframes rotateBorder {
-    0% {
-        transform: rotate(0deg);
-    }
-    100% {
-        transform: rotate(360deg);
-    }
-}
-
-@keyframes randomColors {
-    0% { border-image: linear-gradient(45deg, #ff0044, #00ff95, #ff00ff, #00ffff) 1; }
-    25% { border-image: linear-gradient(45deg, #ff4500, #00cc00, #9900ff, #00cccc) 1; }
-    50% { border-image: linear-gradient(45deg, #ff00ff, #ffeb3b, #00ff00, #1e90ff) 1; }
-    75% { border-image: linear-gradient(45deg, #ff1493, #00ced1, #ffd700, #4169e1) 1; }
-    100% { border-image: linear-gradient(45deg, #ff0044, #00ff95, #ff00ff, #00ffff) 1; }
-}
 
 #about-main {
     max-width: 1000px; 
