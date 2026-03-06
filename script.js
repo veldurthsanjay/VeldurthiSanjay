@@ -56,12 +56,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-
-    // ================= ROLE ANIMATION =================
-    const roleElement = document.getElementById('role');
-    const roles = ['Web Developer', 'UI/UX Designer'];
-    let currentRoleIndex = 0;
-
     function changeRole() {
         roleElement.style.opacity = 0;
         setTimeout(() => {
