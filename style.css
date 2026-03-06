@@ -1151,13 +1151,7 @@ footer p {
     }
 }
 
-#bg-canvas {
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: -1;
-    pointer-events: none;
-}
+
 
 /* New CSS for dynamic scroll loading animations */
 .section {
