@@ -1,22 +1,22 @@
-const themes = [
+// const themes = [
 
-    {
-        bg: "linear-gradient(135deg, #121212 0%, #2c003e 100%)",
-        button: "linear-gradient(45deg, #ffd700, #ff4500)",
-        text: "#f5f5f5"
-    }
-];
+//     {
+//         bg: "linear-gradient(135deg, #121212 0%, #2c003e 100%)",
+//         button: "linear-gradient(45deg, #ffd700, #ff4500)",
+//         text: "#f5f5f5"
+//     }
+// ];
 
-let currentTheme = 0;
+// let currentTheme = 0;
 
-function switchTheme() {
-    currentTheme = (currentTheme + 1) % themes.length;
-    const theme = themes[currentTheme];
+// function switchTheme() {
+//     currentTheme = (currentTheme + 1) % themes.length;
+//     const theme = themes[currentTheme];
 
-    document.body.style.background = theme.bg;
-    document.body.style.color = theme.text;
-    document.querySelector(".theme-toggle").style.background = theme.button;
-}
+//     document.body.style.background = theme.bg;
+//     document.body.style.color = theme.text;
+//     document.querySelector(".theme-toggle").style.background = theme.button;
+// }
 
 
 // ================= MAIN =================
